@@ -1,0 +1,27 @@
+# 自除数 是指可以被它包含的每一位数除尽的数。
+# 例如，128 是一个自除数，因为 128 % 1 == 0，128 % 2 == 0，128 % 8 == 0。
+# 还有，自除数不允许包含 0 。
+# 给定上边界和下边界数字，输出一个列表，列表的元素是边界（含边界）内所有的自除数。
+
+######################################################################
+def selfDividingNumbers(left,right):
+    list =[]
+    for i in range(left, right+1):
+        if i < 10:
+            list.append(i)
+            continue
+        if '0' in str(i):
+            continue
+        for st in str(i):
+            if i % int(st) != 0:
+                break
+        else:
+            list.append(i)
+    return list
+
+######################################################################
+# for ... else ...
+######################################################################
+left = 1
+right = 22
+result = selfDividingNumbers(left,right)
