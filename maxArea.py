@@ -8,8 +8,20 @@
 # 链接：https://leetcode-cn.com/problems/container-with-most-water
 # 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 ######################################################################
-def maxArea(height) -> int:
-    pass
+def maxArea(height):
+    #双指针法
+    i=0
+    j=len(height)-1
+    maxarea = 0
+    while i != j:
+        area = min(height[i],height[j])*(j-i)
+        if area > maxarea:
+            maxarea = area
+        if height[i] < height[j]:
+            i = i + 1
+        else:
+            j = j - 1
+    return maxarea
 ######################################################################
 l = [1,8,6,2,5,4,8,3,7]
 result = maxArea(l)
