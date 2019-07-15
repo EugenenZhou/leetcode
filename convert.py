@@ -16,11 +16,44 @@
 # 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 ######################################################################
 def convert(s, numRows):
-    pass
+    # if numRows <= 1:
+    #     return s
+    # num = 0
+    # st = []
+    # result=''
+    # set = -1
+    # p = numRows - 2
+    # while num < len(s):
+    #     if num < numRows:
+    #         st.append(str(s[num]))
+    #         num = num + 1
+    #         continue
+    #     st[p] = st[p]+ str(s[num])
+    #     if p == 0:
+    #         set = 1
+    #     elif p == numRows-1:
+    #         set = -1
+    #     p = p + set
+    #     num = num + 1
+    # for i in st:
+    #     result = result + i
+    # return result
+##
+    if numRows == 1:
+        return s
+    s_rows = [""] * numRows
+    s_len = len(s)
+    loop_len = 2 * numRows - 2
+    for i in range(s_len):
+        ref_num = i % loop_len
+        if ref_num >= numRows:
+            ref_num = 2 * numRows - ref_num - 2
+        s_rows[ref_num] += s[i]
+    return "".join(s_rows)
 
 ######################################################################
 s = "LEETCODEISHIRING"
-numrows = 3
-result = convert(s,numrows)
+numrow = 3
+result = convert(s,numrow)
 print(result)
 
