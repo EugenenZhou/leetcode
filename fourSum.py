@@ -40,7 +40,7 @@ def fourSum(nums,target):
                     while left < right and nums[right] == nums[right + 1]: right = right - 1
     return res
 
-
+    #两数，三数，四数递归
     # def three_sum(nums, sums, target, low, high, z1):
     #     if low + 1 >= high:
     #         return
