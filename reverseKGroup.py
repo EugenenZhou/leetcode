@@ -10,6 +10,9 @@
 
 ######################################################################
 def reverseKGroup(head,k):
+    # 非递归
+    if k == 1:
+        return head
     dummy = ListNode(0)
     dum = dummy
     while head != None:
@@ -23,7 +26,7 @@ def reverseKGroup(head,k):
             tem.next = nex
             tem = tem.next
             head = head.next
-        temp = reverse(temp)
+        temp = reverse(temp.next)
         dum.next = temp
         for i in range(k):
             dum = dum.next
@@ -36,6 +39,22 @@ def reverse(temp):
         dummy = Node
         temp = temp.next
     return dummy
+# 递归
+#     cur = head
+#     count = 0
+#     while cur and count != k:
+#         cur = cur.next
+#         count += 1
+#     if count == k:
+#         cur = self.reverseKGroup(cur, k)
+#         while count:
+#             tmp = head.next
+#             head.next = cur
+#             cur = head
+#             head = tmp
+#             count -= 1
+#         head = cur
+#     return head
 ######################################################################
 class ListNode:
     def __init__(self, x):
