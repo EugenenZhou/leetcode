@@ -15,10 +15,30 @@
 
 ######################################################################
 def nextPermutation(nums):
-    pass
+    length = len(nums)
+    if length != 1:
+        for i in range(length,1,-1):
+            if nums[i-1] > nums[i-2]:
+                #
+                temp = nums[i-2]
+                atemp = nums[i-2::]
+                atemp.sort()
+                index = atemp.index(temp)
+                while atemp[index + 1] == atemp[index]:
+                    index =index + 1
+                temp = atemp[index + 1]
+                atemp[1:index+2] = atemp[0:index+1]
+                atemp[0] = temp
+                nums[i-2::] = atemp
+                break
+                #
+            elif i == 2:
+                nums.reverse()
+
+
 ######################################################################
-
-
+lists = [2,3,1,2,1,4,3,1]
+nextPermutation(lists)
 
 
 
