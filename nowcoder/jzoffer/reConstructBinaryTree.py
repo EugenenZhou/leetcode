@@ -14,6 +14,7 @@ class TreeNode:
 ######################################################################
 class Solution:
     # 返回构造的TreeNode根节点
+
     def reConstructBinaryTree(self, pre, tin):
         if not pre or not tin:
             return None
