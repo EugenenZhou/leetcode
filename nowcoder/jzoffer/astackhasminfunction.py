@@ -22,7 +22,7 @@ class Solution:
             return None
         if len(self.stack) == 1:
             self.minstack.pop()
-            return stack.pop()
+            return self.stack.pop()
         if self.stack[-1] > self.minstack:
             return self.stack.pop()
         else:
